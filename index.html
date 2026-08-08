@@ -6737,6 +6737,554 @@ function getAIResponse(message){
     `;
 
 }
+function getAIResponse(message){
+
+    const text = message
+        .toLowerCase()
+        .normalize("NFD")
+        .replace(/[\u0300-\u036f]/g, "");
+
+
+    /* =====================================================
+       SALUDOS
+    ===================================================== */
+
+    if(
+        text.includes('hola') ||
+        text.includes('buenas') ||
+        text.includes('hey') ||
+        text.includes('holi')
+    ){
+
+        return `
+            ¡Hola! 👋🐾<br><br>
+
+            Soy <strong>PetCare IA</strong>, tu asistente
+            virtual. Estoy aquí para ayudarte con
+            los servicios, citas, cuidadores,
+            GPS, collar inteligente y mucho más.<br><br>
+
+            ¿Qué necesitas hacer hoy?
+        `;
+
+    }
+
+
+    /* =====================================================
+       AGENDAR CITA
+    ===================================================== */
+
+    if(
+        text.includes('agendar') ||
+        text.includes('agenda') ||
+        text.includes('cita') ||
+        text.includes('reservar') ||
+        text.includes('reserva') ||
+        text.includes('turno')
+    ){
+
+        return `
+            ¡Claro! 📅🐶<br><br>
+
+            Puedo ayudarte a organizar una cita
+            para tu mascota.<br><br>
+
+            Puedes elegir entre diferentes servicios
+            como <strong>paseo, alimentación, cuidado
+            temporal o acompañamiento</strong>.<br><br>
+
+            Para continuar, entra en
+            <strong>Servicios</strong> y selecciona
+            el servicio que necesitas. Después podrás
+            elegir la <strong>fecha y hora</strong>.<br><br>
+
+            También puedes decirme qué servicio
+            necesitas y te explico cómo solicitarlo.
+        `;
+
+    }
+
+
+    /* =====================================================
+       VETERINARIO
+    ===================================================== */
+
+    if(
+        text.includes('veterinario') ||
+        text.includes('veterinaria') ||
+        text.includes('doctor') ||
+        text.includes('salud') ||
+        text.includes('consulta medica')
+    ){
+
+        return `
+            🩺🐾 Si necesitas atención veterinaria,
+            Pet Go Care busca facilitar el acceso
+            a servicios para el bienestar de tu mascota.<br><br>
+
+            Si tu mascota presenta una emergencia
+            o síntomas graves, lo recomendable es
+            acudir directamente a una clínica
+            veterinaria.
+        `;
+
+    }
+
+
+    /* =====================================================
+       SERVICIOS
+    ===================================================== */
+
+    if(
+        text.includes('servicio') ||
+        text.includes('servicios') ||
+        text.includes('que ofrecen') ||
+        text.includes('que hacen')
+    ){
+
+        return `
+            🐾 Estos son algunos de los servicios
+            disponibles en Pet Go Care:<br><br>
+
+            🐕 <strong>Paseo</strong><br>
+            Paseos seguros para tu mascota.<br><br>
+
+            🍽️ <strong>Alimentación</strong><br>
+            Ayuda con sus horarios de alimentación.<br><br>
+
+            🏠 <strong>Cuidado temporal</strong><br>
+            Una persona responsable cuida de tu mascota
+            mientras estás fuera.<br><br>
+
+            ❤️ <strong>Acompañamiento</strong><br>
+            Compañía y atención durante el día.
+        `;
+
+    }
+
+
+    /* =====================================================
+       PASEO
+    ===================================================== */
+
+    if(
+        text.includes('paseo') ||
+        text.includes('pasear') ||
+        text.includes('sacar a pasear')
+    ){
+
+        return `
+            🐕‍🦺 ¡Claro! Puedes solicitar un
+            <strong>paseo</strong> para tu mascota.<br><br>
+
+            El servicio puede incluir seguimiento
+            de ubicación y actualizaciones durante
+            el paseo.<br><br>
+
+            Ve a <strong>Servicios → Paseo →
+            Solicitar</strong> para comenzar.
+        `;
+
+    }
+
+
+    /* =====================================================
+       ALIMENTACIÓN
+    ===================================================== */
+
+    if(
+        text.includes('alimentacion') ||
+        text.includes('alimentar') ||
+        text.includes('comida') ||
+        text.includes('comer')
+    ){
+
+        return `
+            🍽️ Pet Go Care también puede ayudarte
+            con la <strong>alimentación</strong> de tu mascota.<br><br>
+
+            Puedes solicitar que una persona se encargue
+            de respetar sus horarios y necesidades
+            de alimentación.
+        `;
+
+    }
+
+
+    /* =====================================================
+       CUIDADO TEMPORAL
+    ===================================================== */
+
+    if(
+        text.includes('cuidado temporal') ||
+        text.includes('cuidar') ||
+        text.includes('guarderia') ||
+        text.includes('dejar a mi perro') ||
+        text.includes('dejar a mi mascota')
+    ){
+
+        return `
+            🏠🐶 El <strong>cuidado temporal</strong>
+            es ideal cuando necesitas dejar a tu mascota
+            al cuidado de una persona responsable.<br><br>
+
+            Puedes solicitar el servicio desde
+            la sección <strong>Servicios</strong>.
+        `;
+
+    }
+
+
+    /* =====================================================
+       ACOMPAÑAMIENTO
+    ===================================================== */
+
+    if(
+        text.includes('acompanamiento') ||
+        text.includes('compania') ||
+        text.includes('acompañar') ||
+        text.includes('acompanar')
+    ){
+
+        return `
+            ❤️🐾 El servicio de
+            <strong>acompañamiento</strong> está pensado
+            para mascotas que necesitan permanecer
+            acompañadas durante un período de tiempo.
+        `;
+
+    }
+
+
+    /* =====================================================
+       GPS
+    ===================================================== */
+
+    if(
+        text.includes('gps') ||
+        text.includes('ubicacion') ||
+        text.includes('ubicación') ||
+        text.includes('donde esta') ||
+        text.includes('donde está') ||
+        text.includes('localizar') ||
+        text.includes('localizador')
+    ){
+
+        return `
+            📍🐕 Sí, puedes consultar la ubicación
+            de tu mascota durante un servicio activo.<br><br>
+
+            Entra en <strong>Tecnología → Localizador
+            → Ver GPS</strong> para visualizar
+            la ubicación en el mapa.
+        `;
+
+    }
+
+
+    /* =====================================================
+       COLLAR INTELIGENTE
+    ===================================================== */
+
+    if(
+        text.includes('collar') ||
+        text.includes('qr') ||
+        text.includes('codigo') ||
+        text.includes('codigo qr')
+    ){
+
+        return `
+            🐕📱 El collar inteligente permite
+            identificar rápidamente a tu mascota.<br><br>
+
+            El código QR está vinculado con su
+            información y puede utilizarse para
+            acceder a su perfil.<br><br>
+
+            Puedes probarlo desde
+            <strong>Tecnología → Collar inteligente</strong>.
+        `;
+
+    }
+
+
+    /* =====================================================
+       PERFIL DE MASCOTA
+    ===================================================== */
+
+    if(
+        text.includes('perfil') ||
+        text.includes('datos de mi mascota') ||
+        text.includes('informacion de mi mascota')
+    ){
+
+        return `
+            🐾 El perfil de tu mascota puede contener
+            información importante como:<br><br>
+
+            • Nombre<br>
+            • Edad<br>
+            • Raza<br>
+            • Vacunas<br>
+            • Alimentación<br>
+            • Alergias<br>
+            • Estado de la mascota
+        `;
+
+    }
+
+
+    /* =====================================================
+       CHAT CON CUIDADOR
+    ===================================================== */
+
+    if(
+        text.includes('cuidador') ||
+        text.includes('persona responsable') ||
+        text.includes('hablar con') ||
+        text.includes('contactar')
+    ){
+
+        return `
+            💬 Sí. Durante el servicio puedes
+            comunicarte con la persona encargada.<br><br>
+
+            También puedes recibir fotografías,
+            enviar mensajes y compartir la ubicación
+            desde el chat.
+        `;
+
+    }
+
+
+    /* =====================================================
+       FOTOGRAFÍAS
+    ===================================================== */
+
+    if(
+        text.includes('foto') ||
+        text.includes('fotografia') ||
+        text.includes('fotografía') ||
+        text.includes('camara') ||
+        text.includes('cámara')
+    ){
+
+        return `
+            📷🐶 Durante la comunicación puedes
+            recibir fotografías de tu mascota.<br><br>
+
+            También puedes utilizar la cámara para
+            capturar una fotografía y enviarla
+            directamente al chat.
+        `;
+
+    }
+
+
+    /* =====================================================
+       PAGOS
+    ===================================================== */
+
+    if(
+        text.includes('pago') ||
+        text.includes('pagos') ||
+        text.includes('tarjeta') ||
+        text.includes('visa') ||
+        text.includes('precio') ||
+        text.includes('costo') ||
+        text.includes('cuanto cuesta') ||
+        text.includes('cuánto cuesta')
+    ){
+
+        return `
+            💳 Puedes administrar tus métodos de pago
+            desde la sección <strong>Mi PetCare</strong>.<br><br>
+
+            Allí podrás consultar y administrar
+            el método de pago asociado a tu cuenta.
+        `;
+
+    }
+
+
+    /* =====================================================
+       INICIAR SESIÓN
+    ===================================================== */
+
+    if(
+        text.includes('login') ||
+        text.includes('iniciar sesion') ||
+        text.includes('iniciar sesión') ||
+        text.includes('cuenta') ||
+        text.includes('registrarme') ||
+        text.includes('registrar')
+    ){
+
+        return `
+            👤 Para acceder a tu cuenta,
+            selecciona <strong>Iniciar sesión</strong>
+            en la parte superior de la página.<br><br>
+
+            Desde <strong>Mi PetCare</strong> podrás
+            consultar información de tus mascotas,
+            servicios y pagos.
+        `;
+
+    }
+
+
+    /* =====================================================
+       HORARIOS
+    ===================================================== */
+
+    if(
+        text.includes('horario') ||
+        text.includes('horarios') ||
+        text.includes('cuando atienden') ||
+        text.includes('cuando trabajan')
+    ){
+
+        return `
+            🕐 Pet Go Care está pensado para ofrecer
+            seguimiento y atención durante todo el día.<br><br>
+
+            En la sección de contacto encontrarás
+            nuestra información de atención.
+        `;
+
+    }
+
+
+    /* =====================================================
+       CONTACTO
+    ===================================================== */
+
+    if(
+        text.includes('contacto') ||
+        text.includes('correo') ||
+        text.includes('telefono') ||
+        text.includes('teléfono') ||
+        text.includes('ayuda')
+    ){
+
+        return `
+            📩 Puedes comunicarte con Pet Go Care
+            desde la sección <strong>Contacto</strong>.<br><br>
+
+            Allí encontrarás nuestro correo,
+            teléfono y formulario para enviar
+            tu mensaje.
+        `;
+
+    }
+
+
+    /* =====================================================
+       SEGURIDAD
+    ===================================================== */
+
+    if(
+        text.includes('seguro') ||
+        text.includes('seguridad') ||
+        text.includes('confiable') ||
+        text.includes('verificado') ||
+        text.includes('verificados')
+    ){
+
+        return `
+            🔐 La seguridad y confianza son parte
+            importante de Pet Go Care.<br><br>
+
+            La plataforma está pensada para trabajar
+            con perfiles de cuidadores y ofrecer
+            información durante los servicios.
+        `;
+
+    }
+
+
+    /* =====================================================
+       ROCKY
+    ===================================================== */
+
+    if(
+        text.includes('rocky') ||
+        text.includes('perro')
+    ){
+
+        return `
+            🐶 ¡Rocky! ❤️<br><br>
+
+            Puedes consultar su perfil, revisar
+            su información, utilizar el collar
+            inteligente, ver su ubicación durante
+            un servicio y recibir fotografías.
+        `;
+
+    }
+
+
+    /* =====================================================
+       AGRADECIMIENTO
+    ===================================================== */
+
+    if(
+        text.includes('gracias') ||
+        text.includes('gracias por ayudar')
+    ){
+
+        return `
+            ¡Con mucho gusto! 🐾💙<br><br>
+
+            Estoy aquí para ayudarte cuando
+            necesites información sobre Pet Go Care.
+        `;
+
+    }
+
+
+    /* =====================================================
+       DESPEDIDA
+    ===================================================== */
+
+    if(
+        text.includes('adios') ||
+        text.includes('adiós') ||
+        text.includes('chao') ||
+        text.includes('hasta luego')
+    ){
+
+        return `
+            ¡Hasta luego! 👋🐾<br><br>
+
+            Esperamos que tú y tu mascota
+            tengan un excelente día.
+        `;
+
+    }
+
+
+    /* =====================================================
+       RESPUESTA GENERAL
+    ===================================================== */
+
+    return `
+        🤖 Puedo ayudarte con muchas cosas
+        de Pet Go Care.<br><br>
+
+        Puedes preguntarme, por ejemplo:<br><br>
+
+        📅 <strong>“Quiero agendar una cita”</strong><br>
+        🐕 <strong>“¿Qué servicios tienen?”</strong><br>
+        📍 <strong>“¿Dónde está mi mascota?”</strong><br>
+        🩺 <strong>“Necesito un veterinario”</strong><br>
+        💳 <strong>“¿Cómo funcionan los pagos?”</strong><br>
+        📷 <strong>“¿Puedo recibir fotos?”</strong><br>
+        🐾 <strong>“¿Cómo funciona el collar?”</strong><br>
+        💬 <strong>“Quiero hablar con el cuidador”</strong>
+    `;
+
+}
 
 </script>
 
